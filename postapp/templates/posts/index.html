@@ -54,7 +54,7 @@
             <h3><a type="button" href="/page/?id={{ post.id }}">{{ post.title }}</a></h3>
             <!-- get content id using a tag -->
             <h4><p>{{ post.summary }}</p></h4>
-            <p><img src="{{ post.image.url }}" class='img-rounded' /></p>
+            <p><img src="{{ post.image.url }}" class='img-rounded'style="max-height: 200px;" /></p>
              <p>发稿时间：{{ post.published }}</p><br>
         {% endfor %} <!-- end of loop-->
     </articl>
