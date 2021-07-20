@@ -22,3 +22,37 @@ class Post(models.Model):
 
     def summary(self):
         return self.content[:30]
+
+
+# Create your models here. 模型函数
+
+class TodoModel(models.Model):
+    title = models.CharField(max_length=32, default="",
+                             blank=True,
+                             null=True,
+                             verbose_name="标题")
+    content = models.TextField(default="",
+                               blank=True,
+                               null=True,
+                               verbose_name="具体内容")
+    create_time = models.DateTimeField(default=now, verbose_name="创建时间")
+    todo_status = models.BooleanField(default=False, verbose_name="处理状态")
+
+    def __str__(self):
+        return "标题: {}， 当前处理状态: {}".format(self.title, self.todo_status)
+
+# 代办事项 Todo
+# 第一步，设置Model
+# # 第二步，页面设置
+# 第三步，编辑后端逻辑代码
+
+# MTV- Model, Template, View
+
+# サーバーを起動
+# python manage.py run server
+# 設定したモデルを登録する
+# python manage.py make migrations
+# 登録したモデルをデータベースの表に移行する
+# python manage.py migrate
+# 管理者権権限のユーザーとパスワードを設定
+# python manage.py createsuperuser

@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from postapp.views import index, page_detail, back
+from postapp.views import todo, check_todo, pending_todo, change_todo_states, delete_todo, add_todo
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -24,7 +25,18 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
     path("page/", page_detail),
-    path("back/", back)
+    path("back/", back),
+
+
+    path('todo/change_status/', change_todo_states),
+    path('todo/delete_todo/', delete_todo),
+    path("todo/add_todo/", add_todo),
+    path("todo/", todo)
+
+
+
+
+
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

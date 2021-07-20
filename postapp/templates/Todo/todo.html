@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Todo App Django2</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+       ul.list-group li a{float:right; margin-left:3px}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container"> <!--fluidは画面左側に表示し固定する-->
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+            Todo App
+        </a>
+        <a class="navbar-brand" href="/">
+            首页
+        </a>
+    </div>
+
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+    <div class="row", style="margin-bottom: 15px;">
+        <div class="col-md-12">
+            <!-- 1. データをサーバー(add_todoのurl)に送信(送信方法はpost) -->
+            <form action="add_todo/" method="post">
+                <div class="input-group">
+                      <!-- 2. name属性を設定(keyを用意する) -->
+                      <input type="text" class="form-control" name="title" placeholder="请输入待办事项...">
+                      <span class="input-group-btn">
+                        <!-- Indicates a successful or positive action -->
+                        <!-- 3. 送信方法を設定（種類は提出）-->
+                        <button type="submit" class="btn btn-success">添加</button>
+                      </span>
+                </div><!-- /input-group -->
+                <!-- 入力データをトークン化しkeyとvalueをサーバに送信され、チェックされる -->
+                {% csrf_token %}
+            </form>
+        </div>
+    </div>
+
+
+    <div class="row"> <!--ブロックレベルの要素を調整 -->
+        <div class="col-md-6">
+            <div class="panel panel-warning">
+                <!--头部信息-->
+                <div class="panel-heading", style="margin-bottom: 15px;"><b>待办事项</b></div>
+                <!--テキスト中身-->
+                <div class="panel-body">
+                    <ul class="list-group"> <!-- 多数のリスト生成 -->
+                        <!-- バックグランドの変数をループし表示する -->
+                        {% for todo in falsetodo %}
+                        <li class="list-group-item">
+                            <!-- 変数のタイトルを表示 -->>
+                            {{ todo.title }}
+                            <a type="button" class="btn btn-primary btn-xs" href="change_status/?id={{ todo.id }}">已处理</a>
+                            <a type="button" class="btn btn-danger btn-xs" href="delete_todo/?id={{ todo.id }}">删除</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-6">
+             <div class="panel panel-success">
+                <!--头部信息 -->
+                 <div class="panel-heading", style="margin-bottom: 15px;"><b>已完成事项</b></div>
+                <!--テキスト中身 -->
+                <div class="panel-body">
+                    <ul class="list-group"> <!--多数のリスト生成-->
+                        {% for todo in truetodo %}
+                        <li class="list-group-item">
+                            {{ todo.title }}
+                            <a type="button" class="btn btn-warning btn-xs"  href="change_status/?id={{ todo.id }}">等待处理</a>
+                            <a type="button" class="btn btn-danger btn-xs" href="delete_todo/?id={{ todo.id }}">删除</a>
+                        </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+             </div>
+        </div>
+</div>
+
+</body>
+</html>
