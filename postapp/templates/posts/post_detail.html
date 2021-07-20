@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <header>
+        <h1><span style="background-color: lightgray;">ブログの詳細内容 </span></h1>
+    </header>
+    <article>
+        <h3> 主题:{{ post.title }}</h3>
+        <p> 内容:{{ post.content }}</p>
+        <p><img src="{{ post.image.url }}"/></p>
+        <p>投稿日: {{ post.published }}</p>
+    </article>
+    <a type="button" href="/back/">戻る</a>
+
+</body>
+</html>
