@@ -13,28 +13,33 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand.no-padding" href="#">
-            {% load static %}
-            <img src="{% static '/postapp/yaoye.png' %}"style="max-height:55px;" class="img-circle"/>
-          </a>
-        </div>
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand.no-padding" href="#">
+                {% load static %}
+                <img src="{% static '/postapp/yaoye.png' %}"style="max-height:55px;" class="img-circle d-inline-block align-top"/>
+                欢迎，天博客！
+              </a>
+            </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul  class="nav navbar-nav">
-                <li class="active"><a href="admin/">管理者 <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">ツール</a></li>
-                </li>
-            </ul>
-        </div><!2-- /.navbar-collapse
-        </div><!-- /.container-fluid -->
+            <div class="navbar navbar-collapse">
+                <ul  class="nav navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a href="admin/">管理者 <span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#">ツール</a>
+
+                </ul>
+            <!--</div><!3-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </div>
     </nav>
     <!-- 見出し -->
     <div class="container">
@@ -43,7 +48,7 @@
     </header>
     <!-- 本文 -->
     <articl>
-        <h2><span style="background-color: lightyellow;">欢迎，天博客！</span> </h2>
+        <h2><span style="background-color: lightyellow;">最新发稿</span></h2><br>
         <!-- jinja template for loop -->
         {% for post in posts %}
             <h3><a type="button" href="/page/?id={{ post.id }}">{{ post.title }}</a></h3>
