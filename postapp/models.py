@@ -21,7 +21,7 @@ class Post(models.Model):
                                                                     )
 
     def summary(self):
-        return self.content[:30]
+        return self.content[:100]
 
 
 # Create your models here. 模型函数
