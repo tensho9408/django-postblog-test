@@ -19,7 +19,6 @@ class Post(models.Model):
                                                                     self.content,
                                                                     self.published,
                                                                     )
-
     def summary(self):
         return self.content[:100]
 

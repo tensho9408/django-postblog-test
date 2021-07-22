@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'postapp',
-
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -122,6 +122,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+# amzon s3 storages settings
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = ' AKIAW65X44NCPO465Y7G'
+AWS_SECRET_ACCESS_KEY = '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'
+#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+AWS_STORAGE_BUCKET_NAME = 'djangotodoapp'
+
+
 
 # 静的画像のurl
 STATIC_URL = '/static/'

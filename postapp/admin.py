@@ -4,3 +4,4 @@ from postapp.models import Post, TodoModel
 
 admin.site.register(Post)
 admin.site.register(TodoModel)
+
