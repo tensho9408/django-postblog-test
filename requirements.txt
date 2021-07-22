@@ -1,5 +1,7 @@
-django
+django~=3.2.5
 whitenoise
 gunicorn
 pillow
 
+
+python-dotenv~=0.7.0

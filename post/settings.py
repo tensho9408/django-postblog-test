@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
 
 # import django_heroku
 
@@ -23,9 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
+dotenv_path = os.path.join(BASE_DIR, '.env')
+load_dotenv(dotenv_path=dotenv_path)
+#load_dotenv(".env")
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*$xvwe@^ig0nl7pwlo699dwmrhd$&4q5f$b$o23)uaylapcu*&'
-
+#SECRET_KEY = "django-insecure-*$xvwe@^ig0nl7pwlo699dwmrhd$&4q5f$b$o23)uaylapcu*&"
+SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -124,11 +129,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 # amzon s3 storages settings
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = ' AKIAW65X44NCPO465Y7G'
-AWS_SECRET_ACCESS_KEY = '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'
+#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = os.getenv("ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.getenv("SECRET_ACCESS_KEY")
 #STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
-AWS_STORAGE_BUCKET_NAME = 'djangotodoapp'
+AWS_STORAGE_BUCKET_NAME = os.getenv("STORAGE_BUCKET_NAME")
 
 
 
@@ -152,4 +157,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
