@@ -36,7 +36,7 @@ def todo(request):
     falsetodo = TodoModel.objects.filter(todo_status=False)
     truetodo = TodoModel.objects.filter(todo_status=True)
 
-    print([todo.id for todo in alltodo])
+    #print([todo.id for todo in alltodo])
     return render(request, "Todo/todo.html", {"falsetodo": falsetodo, "truetodo": truetodo})
 
 
@@ -71,7 +71,7 @@ def pending_todo(request):
 def change_todo_states(request):
     id = request.GET.get("id")
     todo = TodoModel.objects.filter(id=id).first()
-    print(id, todo.todo_status)
+    #print(id, todo.todo_status)
     if todo:
         todo.todo_status = not todo.todo_status  # b = not True --> b = False
         todo.save()
@@ -84,7 +84,7 @@ def change_todo_states(request):
 def delete_todo(request):
     id = request.GET.get("id")
     todo = TodoModel.objects.filter(id=id)
-    print(id, todo)
+    #print(id, todo)
     if todo:
         todo.delete()
 

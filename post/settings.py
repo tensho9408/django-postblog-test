@@ -129,11 +129,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 # amzon s3 storages settings
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = os.getenv("ACCESS_KEY_ID")
-AWS_SECRET_ACCESS_KEY = os.getenv("SECRET_ACCESS_KEY")
+
+#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#AWS_ACCESS_KEY_ID = os.getenv("ACCESS_KEY_ID")
+#AWS_SECRET_ACCESS_KEY = os.getenv("SECRET_ACCESS_KEY")
 #STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
-AWS_STORAGE_BUCKET_NAME = os.getenv("STORAGE_BUCKET_NAME")
+#AWS_STORAGE_BUCKET_NAME = os.getenv("STORAGE_BUCKET_NAME")
 
 
 
